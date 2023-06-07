@@ -4,7 +4,7 @@ const DATA = [
     title: "Battle of Los Angeles",
     description: "Hypertensive encephalopathy",
     location: "Paraguarí",
-    date: "Male",
+    date: "2022-09-10",
     image: "images/1.jpg",
     feature: true,
   },
@@ -14,7 +14,7 @@ const DATA = [
     description:
       "Open fractures involving skull or face with other bones with subarachnoid, subdural, and extradural hemorrhage, with concussion, unspecified",
     location: "Tanuma",
-    date: "Male",
+    date: "2021-01-02",
     image: "images/2.jpg",
     feature: true,
   },
@@ -23,7 +23,7 @@ const DATA = [
     title: "Way, Way Back, The",
     description: "Malignant neoplasm of ureteric orifice",
     location: "Mosopa",
-    date: "Female",
+    date: "2021-09-08",
     image: "images/3.jpg",
     feature: true,
   },
@@ -32,7 +32,7 @@ const DATA = [
     title: "Dead & Buried",
     description: "Arteritis, unspecified",
     location: "Wenjī",
-    date: "Female",
+    date: "2022-04-20",
     image: "images/4.jpg",
     feature: true,
   },
@@ -42,7 +42,7 @@ const DATA = [
     description:
       "Other accidental submersion or drowning in water transport accident injuring occupant of small boat, powered",
     location: "Spasskoye",
-    date: "Male",
+    date: "2021-03-07",
     image: "images/5.jpg",
     feature: true,
   },
@@ -51,7 +51,7 @@ const DATA = [
     title: "Golden Age, The (Âge d'Or, L')",
     description: "Open fracture of acromial process of scapula",
     location: "Krasnyy Oktyabr’",
-    date: "Female",
+    date: "2022-05-06",
     image: "images/6.jpg",
     feature: true,
   },
@@ -60,7 +60,7 @@ const DATA = [
     title: "Breaking Out (Vägen ut)",
     description: "Mumps pancreatitis",
     location: "Margoyoso",
-    date: "Male",
+    date: "2022-12-11",
     image: "images/7.jpg",
     feature: false,
   },
@@ -69,7 +69,7 @@ const DATA = [
     title: "Resident Evil: Damnation",
     description: "Poisoning by dental drugs topically applied",
     location: "Yaojiaji",
-    date: "Male",
+    date: "2021-12-11",
     image: "images/8.jpg",
     feature: true,
   },
@@ -78,7 +78,7 @@ const DATA = [
     title: "Killing Floor, The",
     description: "Multiple papillomata due to yaws and wet crab yaws",
     location: "Guadalupe",
-    date: "Male",
+    date: "2022-08-09",
     image: "images/9.jpg",
     feature: true,
   },
@@ -87,7 +87,7 @@ const DATA = [
     title: "Lucky Them",
     description: "Exposure to SARS-associated coronavirus",
     location: "Shanshi",
-    date: "Male",
+    date: "2021-02-02",
     image: "images/10.jpg",
     feature: true,
   },
@@ -106,7 +106,9 @@ export function getFilteredEvent(dateFilter) {
   const { year, month } = dateFilter;
   let filteredEvents = DATA.filter((event) => {
     const eventData = new Date(event.date);
-    return eventData.getFullYear() === year && event.getMonth() === month - 1;
+    return (
+      eventData.getFullYear() === year && eventData.getMonth() === month - 1
+    );
   });
   return filteredEvents;
 }

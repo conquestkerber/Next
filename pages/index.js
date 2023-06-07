@@ -1,17 +1,24 @@
 import EventList from "@/components/events/EventList";
-import { Inter } from "next/font/google";
-import { getAllEvents } from "@/dummy-data";
-import EventSearch from "@/components/events/EventSearch";
+import { getFeaturedEvents } from "@/helpers/ApiService";
 
-const inter = Inter({ subsets: ["latin"] });
-
-export default function Home() {
-  const events = getAllEvents();
+const Home = (props) => {
   return (
     <>
       <div>
-        <EventList items={events} />
+        <EventList items={props.events} />
       </div>
     </>
   );
+};
+
+export async function getStaticProps() {
+  const featuredEvents = await getFeaturedEvents();
+  return {
+    props: {
+      events: featuredEvents,
+    },
+    revalidate: 1800,
+  };
 }
+
+export default Home;
